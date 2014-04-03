@@ -1,0 +1,42 @@
+#!/bin/bash
+
+function usage {
+  echo "Usage: vncstart"
+  echo "       vncstart -h"
+  echo "       vncstart --help" 
+  echo "       vncstart display# [display#...] [--res ####x####]"  
+}
+
+
+
+if [ -z $1 ]
+  then display=55
+       resolution=1920x1200
+       vncserver :$display -geometry $resolution -depth 24
+else 
+  # print help message 
+  if [ $1 == '-h' ] || [ $1 == '--help' ] || [ $1 == '--res' ]
+  then 
+    usage
+    exit 1
+  fi
+
+  # get the resolution
+  if [ $# -ge 3 ] && [ ${@: -2:1} == '--res' ]
+  then 
+    resolution=${@: -1}
+  else 
+    resolution=1920x1200
+  fi
+
+  for var in $@
+  do 
+    if [ $var == "--res" ]
+    then 
+      break
+    fi
+
+    vncserver :$var -geometry $resolution -depth 24
+  done
+fi
+

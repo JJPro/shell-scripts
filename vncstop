@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ -z $1 ]
+  then display=55
+       vncserver -kill :$display
+else
+  for display in $@
+  do 
+    vncserver -kill :$display
+  done
+fi 
+
