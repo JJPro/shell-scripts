@@ -1,0 +1,32 @@
+* Details about MacVim differences:
+Launch MacVim -> :help macvim
+
+gvim [Graphics Vim]:
+Mac: MacVim
+Linux: vim-gnome
+
+Commands         Action
+o               new line bellow
+O     			new line above
+s 			    substitute current char
+S    			substitute the whole line
+r    			replace a single char
+R    			replace continues chars
+c    			change selected text in visual mode
+
+ctrl-b     		page backward
+ctrl-f      	page forward
+H   		    first line of window
+M   		    middle of window
+L   		    last line of window
+^   		    move to beginning of line
+$   		    move to end of line
+#G  		    #th line
+#w  		    next word
+#b  		    move to beginning of word 
+				also stops on punctuations
+#B      		move to beginning of word
+        		punctuation are treated part of the word
+#e     			move to end of word
+#f<char>     	move to #th occurrence of <char>
+ctrl-o 	        jump back to previous loc
