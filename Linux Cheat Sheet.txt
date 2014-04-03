@@ -1,0 +1,97 @@
+Linux Cheat Sheet
+Shortcuts: 
+Ctrl+A  	Moves to the beginning of the line
+Ctrl+E  	Moves to the end of the line
+Ctrl+W  	Delete the previous word
+Ctrl+U  	Delete beginning to cursor
+Ctrl+K  	Delete cursor to end
+^testfille^testfile substitute occurence in previous command
+bind -P 	Displays all keybindings
+
+
+
+apt-cache policy [app name] -- check version of installed application
+which [app name] 			-- to locate the application
+dpkg -l 					-- list all installed debian packages
+uname 						-- print system information
+nautilus [directory path] 	-- open directory in window
+ctrl-u						-- copy from beginning of line to cursor
+ctrl-y						-- paste
+wget "http://..."			-- to download the file to current directory
+sudo dpkg -i example.deb 	-- to install a debian package
+dd 							-- convert and copy a file
+sudo dd if=xxx.iso of=/dev/diskN bs=1m -- burn image to disk
+chroot 						-- change the working disk/directory
+startx						-- to start GUI
+:g/pattern/.w>>newfile		-- export matching lines to file, can use \| (or) in pattern
+find -name xxx				-- to find a file by name
+tar -zxvf filename.tar.gz	-- -z: Uncompress the file with gzip command
+							   -x: Extract the tarball
+							   -v: Verbose the process
+							   -f filename.tar.gz: Read the archive from specified file
+man hier					-- Description of the Unix FS structure. 
+>>							-- append output to redirected file.
+ls | wc -l 					-- the result is the # of items in the directory
+locate string | wc -l 		-- returns the # of occurrences of string in the locate database
+bind -P 					-- display all key bindings
+;							-- execute each command, one after another, until it reaches the end of the line. 
+							   Only when one command is completed does another begin. This shortcut is just like waiting for the prompt and typing a new command.
+tail 
+head
+logger xxx					-- log sth. to system.log file
+!!							-- reuse last command
+!$							-- reuse argument of last command
+du -hs 						-- just display the total size of the dir
+   -H 						-- follow symlink
+
+
+How to add application to the launcher: 
+First, create a .desktop file to the application (eclipse for example) in the applications directory:
+	gedit ~/.local/share/applications/eclipse.desktop
+Then, paste this inside (don't forget to edit Icon and Exec values): 
+----content of eclipse.desktop-----
+	[Desktop Entry]
+	Type=Application
+	Name=Eclipse
+	Comment=Eclipse Integrated Development Environment
+	Icon=** something like /opt/eclipse/icon.xpm **
+	Exec= ** something like /opt/eclipse/eclipse **
+	Terminal=false
+	Categories=Development;IDE;Java;
+	StartupWMClass=Eclipse
+-----end of eclipse.desktop--------
+Fianlly, drag the .desktop file onto the launcher. 
+
+
+How to execute a program from Terminal: 
+Link the program to /usr/bin/
+Command: ln -s source_to_program_executable /usr/bin/your_name_the_command
+
+
+To fix the black screen issue, add boot parameter:
+i915.blacklist=1
+
+To install and configure XRDP: 
+install: 
+sudo apt-get install xrdp
+configure: 
+i.  create a file .xsession in your home directory
+ii. type in "gnome-session --session=ubuntu-2d"
+then, sudo /etc/init.d/xrdp restart
+
+
+To install Intel Graphics Driver: 
+https://01.org/linuxgraphics/downloads/2013/intelr-linux-graphics-installer-version-1.0.2
+
+
+
+
+RDP Server: xrdp
+
+PolicyKit is here: /usr/share/polkit-1/actions/
+
+Logout XRDP: gnome-session-quit
+
+Home Ubuntu: 50.133.181.72:3389
+
+sshd_config: /etc/ssh/
