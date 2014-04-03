@@ -95,3 +95,9 @@ Logout XRDP: gnome-session-quit
 Home Ubuntu: 50.133.181.72:3389
 
 sshd_config: /etc/ssh/
+
+
+hosts files: 
+Mac: /private/etc/hosts
+Linux: /etc/hosts
+
